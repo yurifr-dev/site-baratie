@@ -46,8 +46,8 @@ const adicionaEntrada = (tipo) => {
   console.log('r', itemName);
   // Crie um novo elemento para o carrinho
   const carrinhoItem = document.createElement('li');
-  carrinhoItem.textContent = `${itemName} -`;
-  
+  carrinhoItem.textContent = `${itemName}`;
+  carrinhoItem.innerHTML = `<img src="./img/${itemName}.webp"></br><span>${itemName}</span>`
   // Adicione o item ao carrinho
   carrinhoList.appendChild(carrinhoItem);
 }
