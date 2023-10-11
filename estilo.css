@@ -463,7 +463,9 @@ footer {
     }
 
 }
-
+.itens-carrinho > li {
+    font-size: 22px;
+}
 .carrinho {
     position: fixed;
     background-color: whitesmoke;
