@@ -47,6 +47,6 @@ Confira o que nossos clientes têm a dizer sobre nós nos app vizinhos.
 Agradecemos por visitar a página web do *Baratie*. Esperamos vê-lo em breve em nosso restaurante para desfrutar da autêntica culinária.
 
 ## Equipe
-Yuri Figueiredo 
-Esli Janai
-Peter Martins
+- Yuri Figueiredo 
+- Esli Janai
+- Peter Martins
