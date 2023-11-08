@@ -1,5 +1,4 @@
 # site-baratie
-# site-baratie
 # Baratie - Página Web do Restaurante
 
 ![Baratie logo](logo.webp)
