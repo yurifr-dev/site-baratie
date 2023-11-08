@@ -27,7 +27,7 @@ Estamos abertos todos os dias da semana, das 11h30 às 23h. Venha nos visitar pa
 ## Localização
 
 - *Endereço*: Rua da Itália, 133, Cidade das Delícias, IT
-- 
+  
 ## Galeria de Fotos
 
 Explore nosso álbum de fotos dos nossos pratos para uma amostra visual dos pratos deliciosos e do ambiente acolhedor do restaurante.
@@ -45,3 +45,8 @@ Confira o que nossos clientes têm a dizer sobre nós nos app vizinhos.
 ## Agradecimentos
 
 Agradecemos por visitar a página web do *Baratie*. Esperamos vê-lo em breve em nosso restaurante para desfrutar da autêntica culinária.
+
+## Equipe
+Yuri Figueiredo 
+Esli Janai
+Peter Martins
