@@ -40,7 +40,7 @@ Confira o que nossos clientes têm a dizer sobre nós nos app vizinhos.
 
 - *Telefone*: (71) 94956-7890
 - *E-mail*: info@baratie.com
-- Redes Sociais: Siga-nos nas redes sociais.
+- Redes Sociais: Instagram @BaratieRest.
 
 ## Agradecimentos
 
