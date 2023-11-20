@@ -1,0 +1,49 @@
+-- Tabela Prato
+CREATE TABLE Prato (
+    codigo INT PRIMARY KEY,
+    nome VARCHAR(255),
+    ingredientes TEXT,
+    tipo_prato VARCHAR(20) CHECK (tipo_prato IN ('entrada', 'principal', 'sobremesa'))
+);
+
+-- Tabela Pedido
+CREATE TABLE Pedido (
+    id INT PRIMARY KEY,
+    data DATE,
+    entrada INT REFERENCES Prato(codigo),
+    principal INT REFERENCES Prato(codigo),
+    sobremesa INT REFERENCES Prato(codigo)
+);
+-- Inserir pratos
+INSERT INTO Prato (codigo, nome, ingredientes, tipo_prato) VALUES
+(1, 'Salada Caesar', 'Alface, croutons, parmesão, molho Caesar', 'entrada'),
+(2, 'Bife à Parmegiana', 'Bife, queijo, molho de tomate', 'principal'),
+(3, 'Mousse de Chocolate', 'Chocolate, creme de leite, açúcar', 'sobremesa');
+
+-- Inserir pedido
+INSERT INTO Pedido (id, data, entrada, principal, sobremesa) VALUES
+(1, '2023-11-20', 1, 2, 3);
+-- Listar todos os pratos
+SELECT * FROM Prato;
+
+-- Listar todos os pedidos
+SELECT * FROM Pedido;
+
+-- Listar pedidos com detalhes de pratos
+SELECT
+    Pedido.id,
+    Pedido.data,
+    Prato.nome AS entrada,
+    Prato.nome AS principal,
+    Prato.nome AS sobremesa
+FROM Pedido
+JOIN Prato ON Pedido.entrada = Prato.codigo
+-- Atualizar nome do prato
+UPDATE Prato
+SET nome = 'Salada Caprese'
+WHERE codigo = 1;
+-- Excluir prato
+DELETE FROM Prato WHERE codigo = 1;
+
+-- Excluir pedido
+DELETE FROM Pedido WHERE id = 1;
