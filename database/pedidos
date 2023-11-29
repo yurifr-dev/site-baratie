@@ -1,0 +1,64 @@
+const express = require('express');
+const bodyParser = require('body-parser');
+const pool = require('./db'); // Importe o arquivo de configuração do banco de dados
+
+const app = express();
+const port = 3000;
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// Rota para listar todos os pedidos
+app.get('/pedidos', async (req, res) => {
+  try {
+    const result = await pool.query('SELECT * FROM pedidos');
+    res.json(result.rows);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Erro ao buscar pedidos' });
+  }
+});
+
+// Rota para adicionar um pedido
+app.post('/pedidos', async (req, res) => {
+  const { data, entrada, principal, sobremesa } = req.body;
+
+  try {
+    const result = await pool.query('INSERT INTO pedidos (data, entrada, principal, sobremesa) VALUES ($1, $2, $3, $4) RETURNING *', [data, entrada, principal, sobremesa]);
+    res.json(result.rows[0]);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Erro ao adicionar pedido' });
+  }
+});
+
+// Rota para atualizar um pedido
+app.put('/pedidos/:id', async (req, res) => {
+  const { data, entrada, principal, sobremesa } = req.body;
+  const id = req.params.id;
+
+  try {
+    const result = await pool.query('UPDATE pedidos SET data = $1, entrada = $2, principal = $3, sobremesa = $4 WHERE id = $5 RETURNING *', [data, entrada, principal, sobremesa, id]);
+    res.json(result.rows[0]);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Erro ao atualizar pedido' });
+  }
+});
+
+// Rota para excluir um pedido
+app.delete('/pedidos/:id', async (req, res) => {
+  const id = req.params.id;
+
+  try {
+    const result = await pool.query('DELETE FROM pedidos WHERE id = $1 RETURNING *', [id]);
+    res.json({ message: 'Pedido removido com sucesso', deletedPedido: result.rows[0] });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Erro ao excluir pedido' });
+  }
+});
+
+app.listen(port, () => {
+  console.log(`Servidor iniciado em http://localhost:${port}`);
+});
